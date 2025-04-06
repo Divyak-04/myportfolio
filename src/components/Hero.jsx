@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ delay: 1.3, duration: 1 }}
         >
           <a
-            href="/DIVYAK_7376222IT135(CV).pdf"
+            href="/DIVYAK_7376222IT135(CV) (1).pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-full transition"
