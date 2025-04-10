@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const projects = [
   {
@@ -46,60 +48,66 @@ const projects = [
   },
 ];
 
-// ✅ Slider settings with single default arrow
+// ✅ Slider configuration
 const sliderSettings = {
   dots: true,
   infinite: true,
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: true, // Only default arrows, no duplicates
+  arrows: true,
 };
 
 const Projects = () => {
   return (
-    <section className="bg-zinc-950 py-16 px-6" id="projects">
+    <section className="bg-zinc-950 py-16 px-4 sm:px-6" id="projects">
       <motion.div
         className="max-w-6xl mx-auto"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-4xl font-bold text-purple-500 mb-10">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-purple-500 mb-10 text-center">
+          Projects
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-zinc-800 rounded-2xl p-6 shadow-xl hover:shadow-purple-600 transition duration-300"
-              whileHover={{ scale: 1.03 }}
+              className="bg-zinc-800 rounded-2xl p-4 sm:p-6 shadow-xl hover:shadow-purple-600 transition duration-300"
+              whileHover={{ scale: 1.02 }}
             >
-              {/* ✅ Image slider with full image view */}
-              <Slider {...sliderSettings}>
-                {project.images.map((img, i) => (
-                  <img
-                    key={i}
-                    src={img}
-                    alt={`${project.title} screenshot ${i + 1}`}
-                    className="w-full h-auto max-h-[500px] object-contain rounded-xl mb-4"
-                  />
-                ))}
-              </Slider>
+              <div className="mb-4 rounded-md overflow-hidden">
+                <Slider {...sliderSettings}>
+                  {project.images.map((img, i) => (
+                    <img
+                      key={i}
+                      src={img}
+                      alt={`${project.title} screenshot ${i + 1}`}
+                      className="w-full h-auto max-h-[350px] object-contain rounded-xl"
+                    />
+                  ))}
+                </Slider>
+              </div>
 
-              <h3 className="text-2xl font-semibold text-purple-300 mb-2">
+              <h3 className="text-xl sm:text-2xl font-semibold text-purple-300 mb-2">
                 {project.title}
               </h3>
-              <p className="text-gray-300 text-sm mb-1">
+              <p className="text-sm sm:text-base text-gray-300 mb-1">
                 🛠 <strong>Tech:</strong> {project.tech}
               </p>
-              <p className="text-gray-300 text-sm mb-1">
+              <p className="text-sm sm:text-base text-gray-300 mb-1">
                 👤 <strong>Role:</strong> {project.role}
               </p>
-              <p className="text-gray-400 mt-2 mb-4">{project.description}</p>
+              <p className="text-gray-400 text-sm sm:text-base mt-2 mb-4">
+                {project.description}
+              </p>
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors"
+                className="inline-flex items-center text-purple-400 hover:text-purple-300 text-sm sm:text-base transition-colors"
               >
                 <FaGithub className="mr-2" /> View on GitHub
               </a>
