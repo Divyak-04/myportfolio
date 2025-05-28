@@ -20,6 +20,7 @@ const Achievements = () => {
             <ul className="list-disc list-inside text-gray-300">
               <li>Problem Solving through Programming in C – NPTEL (Jan-Apr 2023)</li>
               <li>Build a Full Website Using WordPress – Coursera (Dec 2024)</li>
+              <li>Oracle Cloud Infrastructure 2025 Certified Foundations Associate - ORACLE (MAY 2025)</li>
             </ul>
           </div>
 
